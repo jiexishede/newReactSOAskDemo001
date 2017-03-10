@@ -1,0 +1,14 @@
+*.pdf
+.DS_Store
+node_modules
+*.log
+build
+*.diff
+book.md
+coverage
+
+## self add
+**.sass-cache**
+**.css.map
+**/.idea
+
