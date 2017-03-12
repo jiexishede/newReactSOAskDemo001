@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import Preview from './Preview'
 
 class PreviewList extends  Component {
-  static PropTypes = {
-    loading:PropTypes.bool,
-    error:PropTypes.bool,
+  static propTypes = {
+    loading:React.PropTypes.bool,              //  注意 bushi PropTypes.bool,  前面要价 React
+    error:React.PropTypes.bool,
     articleList: React.PropTypes.arrayOf(React.PropTypes.object),
-    loadArticles: PropTypes.func
+    loadArticles: React.PropTypes.func
   };
 
   componentDidMount(){
@@ -21,9 +21,19 @@ class PreviewList extends  Component {
     if(loading){
       return <p className="message">Loading....</p>
     }
-    return this.props.articleList.map(item => (
-        <Preview {...item} key={item.id}/>
-    ))
+
+    // return this.props.articleList.map(item => (
+    //     <Preview {...item} key={item.id}/>
+    // ))
+
+    return (
+        <div>
+          {articleList.map(item => {
+            return <Preview {...item} key={item.id} push={this.props.push} />
+          })}
+        </div>
+    );
+
   }
 }
 

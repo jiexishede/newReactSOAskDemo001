@@ -1,12 +1,15 @@
 
-import { combineReducer } from  'redux';
+// import { combineReducer } from  'redux';  // 不是 combineReducer  而是 combineReducers.// import { combineReducers } from  'redux';
+
+import { combineReducers } from 'redux';
 
 // 引入 reducer 及 actionCreator
+import list, { loadArticles } from '../components/Home/PreviewListRedux';
 
-import list from '../components/Home/PreviewListRedux';
-
-export default combineReducer({
-  list,
+export default combineReducers({
+  list,                       // reducer
 });
 
-export * as listAction from "../components/Home/PreviewListRedux"
+export const actions = {
+  loadArticles,                        // action
+};
