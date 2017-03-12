@@ -3,24 +3,20 @@ import  { createStore, combineReducers, compose, applyMiddleware } from  'redux'
 import { routerReducer } from 'react-router-redux';
 import ThunkMiddleware from 'redux-thunk';
 import rootReducer from './reducers';
+import DevTools from './DevTools';
+
+
+
 const finalCreateStore = compose(
-    applyMiddleware(ThunkMiddleware)
+    applyMiddleware(ThunkMiddleware),
+    DevTools.instrument()
 )(createStore);
-
-
-// const finalCreateStore = compose(
-//     applyMiddleware(ThunkMiddleware, FetchMiddleware),
-//     DevTools.instrument()
-// )(createStore);
-
 
 
 
 const reducer = combineReducers(Object.assign({}, rootReducer, {
   ...rootReducer, //  homeRedux.  combineReducers   这个函数 返回的是一个对象.  查 Dash
-
   routing: routerReducer,
-
 })) ;
 
 
