@@ -7,6 +7,7 @@ import DevTools from './DevTools';
 
 
 
+
 const finalCreateStore = compose(
     applyMiddleware(ThunkMiddleware),
     DevTools.instrument()
@@ -14,8 +15,10 @@ const finalCreateStore = compose(
 
 
 
+    // todo . 这个 rootReducer ,应该放到哪表地方呢??
+
 const reducer = combineReducers(Object.assign({}, rootReducer, {
-  ...rootReducer, //  homeRedux.  combineReducers   这个函数 返回的是一个对象.  查 Dash
+  // ...rootReducer, //  homeRedux.  combineReducers   这个函数 返回的是一个对象.  查 Dash
   routing: routerReducer,
 })) ;
 
