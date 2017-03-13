@@ -9,38 +9,34 @@ class PreviewList extends  Component {
     loadArticles: React.PropTypes.func
   };
 
-  constructor(){
-    super();
+  constructor(props){
+    //The constructor for a React component is called before it is mounted. When implementing the constructor for a React.
+    // Component subclass, you should call super(props) before any other statement.
+    // Otherwise, this.props will be undefined in the constructor, which can lead to bugs.
 
+    // The constructor is the right place to initialize state. If you don't initialize state and you don't bind
+    // methods, you don't need to implement a constructor for your React component.
+    super(props);
     this.stateCount = 1;
   }
 
   componentDidMount(){
     this.props.loadArticles();
-    console.log('action===============');
-
   }
 
   render(){
     const { loading, error, articleList } = this.props;
        this.stateCount = this.stateCount + 1;
 
-    console.log("stateCount===", this.stateCount);
-
     if(error){
-      return <p className="message">)0ops, something is wrong.This.stateCount==={this.stateCount} </p>
+      return <p className="message">)0ops, something is wrong. </p>
     }
     if(loading){
-      return <p className="message">Loading.... This.stateCount==={this.stateCount}</p>
+      return <p className="message">Loading.... </p>
     }
-
-    // return this.props.articleList.map(item => (
-    //     <Preview {...item} key={item.id}/>
-    // ))
 
     return (
         <div>
-          This.stateCount==={this.stateCount}
           {articleList.map(item => {
             return <Preview {...item} key={item.id} push={this.props.push} />
           })}

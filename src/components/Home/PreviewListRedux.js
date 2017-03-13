@@ -14,8 +14,8 @@ const LOAD_ARTICLES_ERROR = "LOAD_ARTICLES_ERROR";
 /// action creator    //   发射方     每次 调用 loadArticles 都会生成一个 action.
 export function loadArticles() {
   return {
-    // types:[LOAD_ARTICLES, LOAD_ARTICLES_SUCCESS, LOAD_ARTICLES_ERROR],
-    type:LOAD_ARTICLES,
+    types:[LOAD_ARTICLES, LOAD_ARTICLES_SUCCESS, LOAD_ARTICLES_ERROR],
+    // type:LOAD_ARTICLES,
     url:'./api/articles.json',
   };
 }
