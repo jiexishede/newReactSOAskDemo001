@@ -1,26 +1,16 @@
 [{
   "id": 1,
-  "title": "样例文章1",
-  "desc": "这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。",
+  "title": "clickToDetail1",
+  "desc": "This is a basic example that demonstrates rendering components based on URLs with react-router as well as connecting them to Redux state. It uses both <Link> elements as well as the push action creator provided by react-router-redux.",
   "date": "2016-04-17"
 }, {
   "id": 2,
-  "title": "样例文章2",
-  "desc": "这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。",
+  "title": "clickToDetail2",
+  "desc": "This example also demonstrates integration with redux-devtools ^3.0.0",
   "date": "2016-01-19"
 }, {
   "id": 3,
-  "title": "样例文章3",
-  "desc": "这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。",
+  "title": "clickToDetail3",
+  "desc": "If you want to run the example from the npm published version of react-router-redux, remove the alias in webpack.config to the source from line 21.",
   "date": "2016-01-02"
-}, {
-  "id": 4,
-  "title": "样例文章4",
-  "desc": "这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。",
-  "date": "2015-12-12"
-}, {
-  "id": 5,
-  "title": "样例文章5",
-  "desc": "这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。这是样例的内容。",
-  "date": "2015-10-25"
 }]

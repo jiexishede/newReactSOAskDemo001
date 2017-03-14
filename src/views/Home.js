@@ -8,17 +8,25 @@ import PreviewList from '../components/Home/PreviewList';
 import { actions } from './HomeRedux';
 import { push } from 'react-router-redux';
 
+import  { bindActionCreators } from "redux"
+
 /// 这个 地方 ,用来 把  Redux 里面的东西拿出来和 当前里面的代码关联起来.
 //  connect 函数返回了一个 高阶组件生成器, 而泽火革生成器会基于原始组件生成一个全新的组件,并给这个组件添加额外的props.
 @connect(state => {
   return {
-    articleList: state.home.list.articleList,
-    loading: state.home.list.loading,
-    error: state.home.list.error,
+    // articleList: state.home.list.articleList,
+    // loading: state.home.list.loading,
+    // error: state.home.list.error,
+    // 将 atcicleList : loading, error 包在 list 里面.
+    list:state.home.list,
+
   };
-}, {
-  push,
-  ...actions,
+}, dispatch => {
+
+  return {
+    actions: bindActionCreators(actions, dispatch),
+    push: bindActionCreators(push, dispatch),
+  }
 })
 class Home extends React.Component {
   render() {
@@ -27,7 +35,7 @@ class Home extends React.Component {
     return (
         <div>
           <h1>Home</h1>
-          <PreviewList {...this.props} />
+          <PreviewList {...this.props.list} {...this.props.actions}  push={this.props.push} />
         </div>
     );
   }
