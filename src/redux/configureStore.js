@@ -4,28 +4,41 @@ import { routerReducer } from 'react-router-redux';
 import ThunkMiddleware from 'redux-thunk';
 import rootReducer from './reducers';
 import DevTools from './DevTools';
+import createFetchMiddleware from 'redux-composable-fetch';
 
+
+
+//  创建一个请求 middleware 的示例
+
+
+const FetchMiddleware = createFetchMiddleware({
+  afterFetch({ action, result }) {
+    return result.json().then(data => {
+      return Promise.resolve({
+        action,
+        result: data,
+      });
+    });
+  },
+});
 
 
 
 const finalCreateStore = compose(
-    applyMiddleware(ThunkMiddleware),
+    applyMiddleware(
+        ThunkMiddleware,
+        // 将 请求的 middleware 注入  store  增强器中
+        FetchMiddleware
+    ),
     DevTools.instrument()
 )(createStore);
 
 
-
-    // todo . 这个 rootReducer ,应该放到哪表地方呢??
-
+//  homeRedux.  combineReducers   这个函数 返回的是一个对象.  查 Dash
 const reducer = combineReducers(Object.assign({}, rootReducer, {
-  // ...rootReducer, //  homeRedux.  combineReducers   这个函数 返回的是一个对象.  查 Dash
+
   routing: routerReducer,
 })) ;
-
-
-
-
-
 
 export default function configureStore(initialState) {
   const store = finalCreateStore(reducer, initialState);

@@ -18,7 +18,15 @@ class PreviewList extends  Component {
     // methods, you don't need to implement a constructor for your React component.
     super(props);
     this.stateCount = 1;
+    this.articleList = [];
   }
+
+  componentWillReceiveProps(nextProps){
+    this.setState(
+        {articleList: nextProps.articleList},
+    );
+  }
+
 
   componentDidMount(){
     this.props.loadArticles();
@@ -37,7 +45,7 @@ class PreviewList extends  Component {
 
     return (
         <div>
-          {articleList.map(item => {
+          {this.state.articleList.map(item => {
             return <Preview {...item} key={item.id} push={this.props.push} />
           })}
         </div>

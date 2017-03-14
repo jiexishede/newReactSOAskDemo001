@@ -16,7 +16,7 @@ export function loadArticles() {
   return {
     types:[LOAD_ARTICLES, LOAD_ARTICLES_SUCCESS, LOAD_ARTICLES_ERROR],
     // type:LOAD_ARTICLES,
-    url:'./api/articles.json',
+    url:'/api/articles.json',
   };
 }
 
@@ -35,7 +35,7 @@ function previewList(state = initialState, action) {
           ...state,
         loading:false,
         error:false,
-        articleList:action.payload.articleList,
+        articleList:action.payload,
       };
     }
     case LOAD_ARTICLES_ERROR: {
