@@ -25,7 +25,7 @@ import  { bindActionCreators } from "redux"
 
   return {
     actions: bindActionCreators(actions, dispatch),
-    push: bindActionCreators(push, dispatch),
+    dispatchPush:  bindActionCreators(push, dispatch),
   }
 })
 class Home extends React.Component {
@@ -35,7 +35,7 @@ class Home extends React.Component {
     return (
         <div>
           <h1>Home</h1>
-          <PreviewList {...this.props.list} {...this.props.actions}  push={this.props.push} />
+          <PreviewList {...this.props.list} {...this.props.actions}  dispatchPush={this.props.dispatchPush} />
         </div>
     );
   }

@@ -46,7 +46,7 @@ class PreviewList extends  Component {
     return (
         <div>
           {this.state.articleList.map(item => {
-            return <Preview {...item} key={item.id} push={this.props.push} />
+            return <Preview {...item} key={item.id} dispatchPush={this.props.dispatchPush} />
           })}
         </div>
     );

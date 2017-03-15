@@ -6,6 +6,8 @@
 
 import React, { Component } from 'react';
 import './Preview.css'
+import { hashHistory } from 'react-router';
+
 
 class Preview extends Component {
   /// 检测 javascript 类型
@@ -26,8 +28,8 @@ class Preview extends Component {
   handleNavigate(id,e) {
     // 阻止原生连接跳转
     e.preventDefault();
-    // 使用 react-router-redux 提供的方法跳转,以便更新对应的 store
-    this.props.push('/#/detail/' + id);
+    this.props.dispatchPush(`/detail/${id}`) ;     // does not work.
+    // hashHistory.push(`detail/${id}`);
   }
 
   render() {
